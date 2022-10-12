@@ -1,0 +1,20 @@
+﻿@{
+	Layout = "_EditorLayout";
+}
+
+@model Feature;
+
+<h1>Add new feature:</h1>
+<form asp-controller="Feature" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-auto">
+            <label for="inputPassword" class="col-form-label">Name:</label>
+            <input asp-for="@Model.Name" class="d-block form-control" />
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="text-end">
+        <input type="submit" class="btn btn-small  btn-secondary" value="Salva">
+    </div>
+</form>

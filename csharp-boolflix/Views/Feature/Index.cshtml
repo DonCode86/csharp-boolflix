@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_EditorLayout";
+}
+
+@model List<Feature>
+    <h1>Caratteristiche</h1>
+    <h2>Lista</h2>
+
+    <hr />
+
+   <a href="@Url.Action("Create", "Feature")" class="btn btn-primary mb-3">Add new feature</a>
+
+    @if(Model.Count() == 0) {
+        <div class="alert alert-primary" role="alert">
+        No features present
+        </div>
+    } else {
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Azioni</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach (Feature feature in Model)
+              {
+                <tr>
+                  <th scope="row">@feature.Id</th>
+                  <td>@feature.Name</td>
+                  <td>
+                      <a href="#">Modifica</a><br>
+                      <a href="#">Elimina</a>
+                  </td>
+                  <td></td>
+                </tr>
+              }
+          </tbody>
+        </table>
+    }
